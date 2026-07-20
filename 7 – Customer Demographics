@@ -1,0 +1,18 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df=pd.DataFrame({
+"Age":[28,35,42],
+"Gender":["Female","Male","Female"],
+"Income":[50000,60000,75000]
+})
+
+plt.bar(range(len(df)),df["Age"])
+plt.title("Customer Age")
+plt.show()
+
+df["Gender"].value_counts().plot(kind="pie",autopct="%1.1f%%")
+plt.ylabel("")
+plt.show()
+
+print(df)
