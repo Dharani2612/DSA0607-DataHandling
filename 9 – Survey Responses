@@ -1,0 +1,17 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df=pd.DataFrame({
+"Q1":["A","B","C"],
+"Q2":["B","A","A"],
+"Q3":["C","D","B"]
+})
+
+df["Q1"].value_counts().plot(kind="bar")
+plt.title("Question 1")
+plt.show()
+
+pd.crosstab(df["Q1"],df["Q2"]).plot(kind="bar",stacked=True)
+plt.show()
+
+print(df)
