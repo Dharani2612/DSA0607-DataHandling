@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df=pd.DataFrame({
+"Customer":[1,2,3,4,5],
+"Age":[25,30,35,28,40],
+"Score":[4,5,3,4,5]
+})
+
+# Histogram
+plt.hist(df["Age"],bins=5)
+plt.title("Customer Age Distribution")
+plt.xlabel("Age")
+plt.ylabel("Frequency")
+plt.show()
+
+# Pie Chart
+df["Score"].value_counts().plot(kind="pie",autopct="%1.1f%%")
+plt.title("Customer Satisfaction")
+plt.ylabel("")
+plt.show()
+
+# Stacked Bar Chart
+age_group=["20-30","20-30","30-40","20-30","30-40"]
+table=pd.crosstab(age_group,df["Score"])
+table.plot(kind="bar",stacked=True)
+plt.show()
