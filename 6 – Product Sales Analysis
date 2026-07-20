@@ -1,0 +1,35 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+products=["A","B","C"]
+jan=[2000,1500,1200]
+feb=[2200,1800,1400]
+mar=[2400,1600,1100]
+
+x=np.arange(len(products))
+w=0.25
+
+plt.bar(x-w,jan,w,label="Jan")
+plt.bar(x,feb,w,label="Feb")
+plt.bar(x+w,mar,w,label="Mar")
+plt.xticks(x,products)
+plt.legend()
+plt.show()
+
+plt.stackplot(["Jan","Feb","Mar"],
+[2000,2200,2400],
+[1500,1800,1600],
+[1200,1400,1100],
+labels=["A","B","C"])
+plt.legend()
+plt.show()
+
+df=pd.DataFrame({
+"Product":products,
+"January":jan,
+"February":feb,
+"March":mar
+})
+
+print(df)
