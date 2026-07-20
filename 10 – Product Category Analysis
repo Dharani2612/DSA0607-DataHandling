@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df=pd.DataFrame({
+"Category":["Electronics","Clothing","Appliances"],
+"Sales":[50000,35000,40000]
+})
+
+# Funnel Chart
+plt.barh(df["Category"],df["Sales"])
+plt.title("Sales Funnel")
+plt.xlabel("Sales")
+plt.show()
+
+# Table
+print(df)
+
+# Pie Chart
+plt.pie(df["Sales"],
+labels=df["Category"],
+autopct="%1.1f%%")
+plt.title("Sales Distribution")
+plt.show()
