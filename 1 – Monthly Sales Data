@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "Month":["January","February","March","April","May"],
+    "Sales":[15000,18000,22000,20000,23000]
+})
+
+# Line Chart
+plt.figure(figsize=(6,4))
+plt.plot(df["Month"],df["Sales"],marker='o')
+plt.title("Monthly Sales")
+plt.xlabel("Month")
+plt.ylabel("Sales ($)")
+plt.grid(True)
+plt.show()
+
+# Bar Chart
+plt.figure(figsize=(6,4))
+plt.bar(df["Month"],df["Sales"])
+plt.title("Top Selling Products (Sales)")
+plt.xlabel("Month")
+plt.ylabel("Sales ($)")
+plt.show()
+
+# Scatter Plot
+advertising=[5000,6000,7000,6500,7500]
+plt.figure(figsize=(6,4))
+plt.scatter(advertising,df["Sales"],s=100)
+plt.xlabel("Advertising Budget")
+plt.ylabel("Monthly Sales")
+plt.title("Advertising vs Sales")
+plt.show()
