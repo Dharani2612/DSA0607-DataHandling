@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df=pd.DataFrame({
+"Product":["A","B","C","D","E"],
+"Quantity":[250,175,300,200,220]
+})
+
+plt.bar(df["Product"],df["Quantity"])
+plt.title("Inventory Quantity")
+plt.xlabel("Products")
+plt.ylabel("Quantity")
+plt.show()
+
+category=["Cat1","Cat1","Cat2","Cat2","Cat3"]
+table=pd.crosstab(category,df["Product"],values=df["Quantity"],aggfunc="sum").fillna(0)
+table.plot(kind="bar",stacked=True)
+plt.show()
+
+price=[50,60,45,70,55]
+plt.scatter(price,df["Quantity"])
+plt.xlabel("Price")
+plt.ylabel("Quantity")
+plt.title("Price vs Quantity")
+plt.show()
