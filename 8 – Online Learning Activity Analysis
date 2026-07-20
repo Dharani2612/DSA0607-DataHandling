@@ -1,0 +1,28 @@
+data<-read.csv("Online_Learning_Activity.csv")
+
+hist(data$Quiz_Score,
+main="Quiz Score",
+xlab="Quiz Score")
+
+boxplot(Quiz_Score~Course,
+data=data,
+main="Quiz Score by Course")
+
+plot(data$Study_Time,
+data$Quiz_Score,
+cex=data$Videos_Watched/5,
+col=rgb(1,0,0,0.5),
+pch=19,
+xlab="Study Time",
+ylab="Quiz Score")
+
+data$Login_Date<-as.Date(data$Login_Date)
+
+library(dplyr)
+
+monthly<-data%>%
+mutate(Month=format(Login_Date,"%Y-%m"))%>%
+group_by(Month)%>%
+summarise(avg=mean(Quiz_Score))
+
+plot(monthly$avg,type="o")
