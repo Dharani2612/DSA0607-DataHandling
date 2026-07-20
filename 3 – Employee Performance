@@ -1,0 +1,29 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df=pd.DataFrame({
+"Employee":[1,2,3,4,5],
+"Department":["Sales","HR","Marketing","Sales","HR"],
+"Years":[5,3,7,4,2],
+"Score":[85,92,78,90,76]
+})
+
+# Line Chart
+plt.plot(df["Employee"],df["Score"],marker='o',label="Performance")
+plt.legend()
+plt.xlabel("Employee")
+plt.ylabel("Score")
+plt.title("Employee Performance")
+plt.show()
+
+# Bar Chart
+df["Department"].value_counts().plot(kind="bar")
+plt.title("Department Distribution")
+plt.show()
+
+# Scatter Plot
+plt.scatter(df["Years"],df["Score"])
+plt.xlabel("Years of Service")
+plt.ylabel("Performance Score")
+plt.title("Years vs Performance")
+plt.show()
